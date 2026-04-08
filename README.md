@@ -2,28 +2,23 @@
 
 VRAG-DFD is a framework that introduces Verifiable Retrieval-Augmented Generation (RAG) into the Deepfake Detection (DFD) domain. By combining professional forensic knowledge retrieval with Reinforcement Learning (GRPO), we empower Multi-modal Large Language Models (MLLMs) to perform expert-level forensic analysis with critical reasoning.
 
-# Project Structure
+<a href="https://arxiv.org/pdf/2504.04907" alt="paper"><img src="https://img.shields.io/badge/ArXiv-2504.04907-cc0000.svg?style=flat" /></a>
+[![Huggingface Checkpoint](https://img.shields.io/badge/%F0%9F%A4%97-Huggingface%20Checkpoint-0070BA?labelColor=555555)](https://huggingface.co/abigcatcat/VRAG-DFD)
 
-```text
-VRAG_DFD/
-├── deepfake_RAG/           # Offline RAG Process
-│   ├── config.py           # Configuration parameters
-│   ├── demo.py               # Main entry point for the RAG system
-│   ├── multimodal_rag.py   # RAG system implementation
-│   └── effort_detector.py  # DFD detector/encoder implementation
-├── ms-swift/               # ms-swift training framework
-├── scripts_run/            # Training and inference scripts
-│   ├── stage_1.sh          # Stage 1: Alignment training
-│   ├── stage_2.sh          # Stage 2: Forensic SFT
-│   ├── stage_3.sh          # Stage 3: Critical RL (GRPO)
-│   ├── eval_batch.sh       # Batch evaluation script
-│   └── eval.py             # Evaluation logic
-├── utils/                  # Utility functions
-│   ├── process.py          # Data format conversion (RAG JSON to Swift format)
-│   └── get_metric.py       # Metrics calculation (AUC, EER, etc.)
-├── annotations/            # Raw annotation files
-└── datasets_jsons/         # JSON files for training and testing
-```
+
+#Overview
+<div align=center><img src="https://github.com/abigcatcat/VRAG-DFD/blob/main/asset/VRAG-DFD.png"/></div>
+
+## Contents
+* [Phase 1: Deepfake RAG](#phase-1-deepfake_rag)
+    * [Installation](#installation)
+    * [Build the Forensic Database](#build-the-forensic-database)
+    * [Generate Offline Retrieval Results](#generate-offline-retrieval-results)
+* [Phase 2: MLLM Training & Evaluation](#phase-2-mllm-training--evaluation)
+    * [Installation](#installation-1)
+    * [Training Pipeline](#training-pipeline)
+    * [Inference & Evaluation](#inference--evaluation)
+* [Citation](#citation)
 
 # Phase 1: deepfake_RAG
 This phase involves building the Forensic Knowledge Database (FKD) and generating retrieval results for test sets.
