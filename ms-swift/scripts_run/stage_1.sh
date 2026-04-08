@@ -1,0 +1,31 @@
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 \
+NPROC_PER_NODE=8 \
+swift sft \
+    --model /path/to/Qwen2.5-VL-7B-Instruct \
+    --model_type qwen2_5_vl \
+    --template qwen2_5_vl \
+    --train_type lora \
+    --dataset ./VRAG_DFD/ms-swift/jsons/FF++_stage1_train.jsonl \
+    --torch_dtype bfloat16 \
+    --num_train_epochs 5 \
+    --per_device_train_batch_size 8 \
+    --per_device_eval_batch_size 1 \
+    --learning_rate 5e-5 \
+    --weight_decay 0.01 \
+    --lora_rank 128 \
+    --lora_alpha 256 \
+    --target_modules all-linear \
+    --freeze_vit false \
+    --freeze_aligner false \
+    --gradient_accumulation_steps 1 \
+    --eval_strategy "no" \
+    --save_steps 300 \
+    --save_total_limit 5 \
+    --logging_steps 10 \
+    --max_length 2048 \
+    --output_dir output/stage_1_output \
+    --logging_dir output/stage_1_log \
+    --system 'examples/train/tuners/lora/prompts.txt' \
+    --warmup_ratio 0.05 \
+    --dataloader_num_workers 4 \
+    --deepspeed zero2 \

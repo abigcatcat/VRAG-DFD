@@ -145,12 +145,6 @@ def build_database_mode(args):
     rag_system = MultimodalRAGSystem(args.model_path, device=MODEL_CONFIG['device'])
     
     # 构建数据库
-    # num_images = rag_system.build_database_from_json(
-    #     args.json_path, 
-    #     args.image_root, 
-    #     args.database_dir,
-    #     max_images_per_video=args.max_images_per_video
-    # )
     
     num_images = rag_system.build_database_from_annojson(
         args.json_path, 
@@ -202,46 +196,6 @@ def query_mode(args):
         print(f"💾 结果已保存到: {args.output_file}")
 
 
-def evaluate_mode(args):
-    """评估模式"""
-    logger = logging.getLogger(__name__)
-    
-    if not args.test_images_file:
-        raise ValueError("评估模式需要指定 --test_images_file 参数")
-    
-    if not os.path.exists(args.test_images_file):
-        raise FileNotFoundError(f"测试图像文件不存在: {args.test_images_file}")
-    
-    # 读取测试图像列表
-    test_images = []
-    with open(args.test_images_file, 'r') as f:
-        for line in f:
-            line = line.strip()
-            if line and not line.startswith('#'):
-                parts = line.split('\t')
-                if len(parts) >= 2:
-                    image_path, true_label = parts[0], parts[1]
-                    test_images.append((image_path, true_label))
-    
-    if not test_images:
-        raise ValueError("测试图像列表为空")
-    
-    logger.info(f"加载了 {len(test_images)} 张测试图像")
-    
-    # 创建RAG系统
-    rag_system = MultimodalRAGSystem(args.model_path, args.database_dir)
-    
-    # 执行评估
-    performance = rag_system.analyze_detection_performance(test_images, k=args.k)
-    
-    # 显示结果
-    print_performance_summary(performance)
-    
-    # 保存结果
-    if args.output_file:
-        save_results_to_json(performance, args.output_file)
-        print(f"💾 评估结果已保存到: {args.output_file}")
-
 
 def test_mode(args):
     """FF++测试集模式"""
@@ -269,19 +223,6 @@ def test_mode(args):
         k=args.k, 
         output_file=args.output_file
     )
-    
-    # 显示结果
-    print(f"\n🎯 FF++测试集结果:")
-    print(f"📊 整体准确率: {results['overall_accuracy']:.3f}")
-    print(f"📈 总测试样本: {results['total_samples']}")
-    print(f"✅ 正确预测: {results['correct_predictions']}")
-    print(f"🔍 检索k值: {results['k_value']}")
-    
-    print(f"\n📂 各类别准确率:")
-    for category, accuracy in results['category_accuracies'].items():
-        total = results['category_stats'][category]['total']
-        correct = results['category_stats'][category]['correct']
-        print(f"  {category:12s}: {accuracy:.3f} ({correct}/{total})")
     
     print(f"\n💾 详细结果已保存到: {args.output_file}")
     
@@ -312,19 +253,6 @@ def auto_mode(args):
         output_file=args.output_file
     )
     
-    # 显示结果
-    print(f"\n🎯 FF++测试集结果:")
-    print(f"📊 整体准确率: {results['overall_accuracy']:.3f}")
-    print(f"📈 总测试样本: {results['total_samples']}")
-    print(f"✅ 正确预测: {results['correct_predictions']}")
-    print(f"🔍 检索k值: {results['k_value']}")
-    
-    print(f"\n📂 各类别准确率:")
-    for category, accuracy in results['category_accuracies'].items():
-        total = results['category_stats'][category]['total']
-        correct = results['category_stats'][category]['correct']
-        print(f"  {category:12s}: {accuracy:.3f} ({correct}/{total})")
-    
     print(f"\n💾 详细结果已保存到: {args.output_file}")
 
 
@@ -348,8 +276,6 @@ def main():
             build_database_mode(args)
         elif args.mode == 'query':
             query_mode(args)
-        elif args.mode == 'evaluate':
-            evaluate_mode(args)
         elif args.mode == 'test':
             test_mode(args)
         elif args.mode == 'auto':
