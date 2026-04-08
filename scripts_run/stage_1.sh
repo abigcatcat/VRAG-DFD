@@ -5,7 +5,7 @@ swift sft \
     --model_type qwen2_5_vl \
     --template qwen2_5_vl \
     --train_type lora \
-    --dataset ./FF++_train.jsonl \
+    --dataset ./VRAG_DFD/ms-swift/jsons/FF++_stage1_train.jsonl \
     --torch_dtype bfloat16 \
     --num_train_epochs 5 \
     --per_device_train_batch_size 8 \

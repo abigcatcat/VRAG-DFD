@@ -5,6 +5,6 @@ export MASTER_PORT=29502
 export CUDA_VISIBLE_DEVICES=0,1,2,3
 
 swift rollout \
-  --model "" \
+  --model /path/to/Qwen2.5-VL-7B-Instruct \
   --vllm_data_parallel_size 4 \
 

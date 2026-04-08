@@ -2,11 +2,11 @@
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 \
 NPROC_PER_NODE=8 \
 swift sft \
-    --model "stage1_model_path" \
+    --model /path/to/model \
     --model_type qwen2_5_vl \
     --template qwen2_5_vl \
     --train_type lora \
-    --dataset '' \
+    --dataset ./VRAG_DFD/ms-swift/jsons/rag_finetune_data.jsonl \
     --torch_dtype bfloat16 \
     --num_train_epochs 5 \
     --per_device_train_batch_size 8 \

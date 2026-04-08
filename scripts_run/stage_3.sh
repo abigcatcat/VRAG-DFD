@@ -10,8 +10,8 @@ swift rlhf \
     --external_plugins examples/train/grpo/plugin/plugin.py \
     --reward_funcs final_meta_reward multi_format \
     --reward_weights 1.0 0.25 \
-    --model "stage2_model_path" \
-    --dataset '' \
+    --model /path/to/model \
+    --dataset ./VRAG_DFD/ms-swift/jsons/rag_grpo_data.jsonl \
     --num_train_epochs 2 \
     --per_device_train_batch_size 8 \
     --per_device_eval_batch_size 8 \
