@@ -1,9 +1,12 @@
 # VRAG-DFD: Verifiable Retrieval-Augmentation for MLLM-based Deepfake Detection
 
+<div align="center">
+  <a href="https://arxiv.org/pdf/2504.04907" alt="paper"><img src="https://img.shields.io/badge/ArXiv-2504.04907-cc0000.svg?style=flat" /></a>
+  <a href="https://huggingface.co/abigcatcat/VRAG-DFD" alt="Huggingface Checkpoint"><img src="https://img.shields.io/badge/%F0%9F%A4%97-Huggingface%20Checkpoint-0070BA?labelColor=555555" /></a>
+</div>
+
 VRAG-DFD is a framework that introduces Verifiable Retrieval-Augmented Generation (RAG) into the Deepfake Detection (DFD) domain. By combining professional forensic knowledge retrieval with Reinforcement Learning (GRPO), we empower Multi-modal Large Language Models (MLLMs) to perform expert-level forensic analysis with critical reasoning.
 
-<a href="https://arxiv.org/pdf/2504.04907" alt="paper"><img src="https://img.shields.io/badge/ArXiv-2504.04907-cc0000.svg?style=flat" /></a>
-[![Huggingface Checkpoint](https://img.shields.io/badge/%F0%9F%A4%97-Huggingface%20Checkpoint-0070BA?labelColor=555555)](https://huggingface.co/abigcatcat/VRAG-DFD)
 
 
 #Overview
@@ -110,6 +113,12 @@ python utils/get_metrics.py --results <prediction_file>.json
 If you use our dataset, code or find VRAG-DFD useful, please cite our paper in your work as:
 
 ```bib
-
+@article{vragdfd2025,
+  title={VRAG-DFD: Verifiable Retrieval-Augmentation for MLLM-based Deepfake Detection},
+  author={Hui Han and Shunli Wang and Yandan Zhao and Taiping Yao and Shouhong Ding},
+  journal={arXiv preprint},
+  year={2026},
+  note={Available soon}
+}
 ```
 
