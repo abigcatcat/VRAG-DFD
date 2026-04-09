@@ -1,7 +1,7 @@
 # VRAG-DFD: Verifiable Retrieval-Augmentation for MLLM-based Deepfake Detection
 
 <div align="center">
-  <a href="https://arxiv.org/pdf/2504.04907" alt="paper"><img src="https://img.shields.io/badge/ArXiv-2504.04907-cc0000.svg?style=flat" /></a>
+  <!-- <a href="https://arxiv.org/pdf/2504.04907" alt="paper"><img src="https://img.shields.io/badge/ArXiv-2504.04907-cc0000.svg?style=flat" /></a> -->
   <a href="https://huggingface.co/abigcatcat/VRAG-DFD" alt="Huggingface Checkpoint"><img src="https://img.shields.io/badge/%F0%9F%A4%97-Huggingface%20Checkpoint-0070BA?labelColor=555555" /></a>
 </div>
 
