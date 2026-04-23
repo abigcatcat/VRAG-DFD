@@ -39,14 +39,14 @@ We use the annotated FF++ dataset to create the vector database.
 
 ```python
 DATASET_CONFIG = {
-    'json_path': "/path/to/your/annotations/rag_anno.json",  # 标注文件路径
-    'image_root': '/path/to/your/images',  # 图像根目录
-    'max_images_per_video': 32,  # 每视频采样帧数
+    'json_path': "/path/to/yourjson",  # The corresponding JSON file for the dataset used to build the database
+    'image_root': '/path/to/your/images',  # Root directory for images
+    'max_images_per_video': 32,  # Number of sampled frames per video
     'batch_size': 32,
 }
 
 MODEL_CONFIG = {
-    'model_path': '/path/to/effort_model.pth',  # 预训练模型路径
+    'model_path': '/path/to/pth',  # Path to the pre-trained retrievel model
 }
 ```
 2. Run the build command:
@@ -59,12 +59,12 @@ Retrieve forgery evidence for public datasets (e.g., Celeb-DF v1/v2) to generate
 1. Update parameters in `deepfake_RAG/config.py`:
 ```python
 DATASET_CONFIG = {
-    'json_path': "/path/to/test_dataset.json",  # 测试数据集JSON
-    'image_root': '/path/to/test/images',  # 测试图像目录
+    'json_path': "/path/to/test_dataset.json",  # The JSON file corresponding to the test set.
+    'image_root': '/path/to/test/images',  # Directory for test images
 }
 
 DATABASE_CONFIG = {
-    'save_dir': './deepfake_rag_database',  # 已构建的数据库路径
+    'save_dir': './deepfake_rag_database',  # Path to the constructed database
 }
 ```
 2. Run the build command:
