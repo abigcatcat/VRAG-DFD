@@ -28,9 +28,9 @@ This phase involves building the Forensic Knowledge Database (FKD) and generatin
 
 ## Installation
 ````bash
-   git clone https://github.com/abigcatcat/VRAG-DFD.git
-   cd VRAG-DFD/deepfake_RAG
-   pip install -r requirements.txt
+git clone https://github.com/abigcatcat/VRAG-DFD.git
+cd VRAG-DFD/deepfake_RAG
+pip install -r requirements.txt
    ````
 
 ## Build the Forensic Database
@@ -77,8 +77,8 @@ The training follows a three-stage progressive strategy to cultivate critical re
 
 ## Installation
 ````bash
-   cd VRAG-DFD
-   pip install -r requirements.txt
+cd VRAG-DFD
+pip install -r requirements.txt
    ````
 
 1. Training Pipeline
