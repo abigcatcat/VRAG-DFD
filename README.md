@@ -91,6 +91,7 @@ The training data is located in datasets_json/, and execution scripts are in scr
 | **Stage 3** | `rag_grpo_data.json` | `bash scripts_run/stage3.sh` | Critical RL (GRPO) |
 
 2. Inference & Evaluation
+
 Step A: Format Processing
 Convert Phase 1 retrieval results into the training-compatible format:
 ````bash
