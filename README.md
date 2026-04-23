@@ -9,7 +9,7 @@ VRAG-DFD is a framework that introduces Verifiable Retrieval-Augmented Generatio
 
 
 
-#Overview
+# Overview
 <div align=center><img src="https://github.com/abigcatcat/VRAG-DFD/blob/main/asset/VRAG-DFD.png"/></div>
 
 ## Contents
